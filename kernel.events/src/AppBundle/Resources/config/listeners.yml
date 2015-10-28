@@ -1,0 +1,11 @@
+services:
+  app.custom_header.listener:
+      class: AppBundle\EventListener\CustomHeaderListener
+      tags:
+          - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+  app.redirect_controller.listener:
+      class: AppBundle\EventListener\RedirectControllerListener
+      arguments: [@controller_resolver]
+      tags:
+          - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
