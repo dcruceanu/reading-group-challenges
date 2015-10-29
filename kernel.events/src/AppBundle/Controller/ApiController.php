@@ -2,6 +2,7 @@
 
 
 namespace AppBundle\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -24,6 +25,7 @@ class ApiController
      */
     public function productAction(Request $request)
     {
-        return new Response();
+        $header['X-READING-GROUP'] = $request->headers->get('X-READING-GROUP');
+        return $header;
     }
 }

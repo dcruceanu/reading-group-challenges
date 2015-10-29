@@ -4,7 +4,6 @@
 namespace AppBundle\EventListener;
 
 use AppBundle\Controller\CatchableController;
-use AppBundle\Controller\RewrittenController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ControllerResolver;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;

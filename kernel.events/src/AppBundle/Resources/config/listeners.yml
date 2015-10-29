@@ -9,3 +9,9 @@ services:
       arguments: [@controller_resolver]
       tags:
           - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+
+  app.api.subscriber:
+      class: AppBundle\EventListener\ApiSubscriberListener
+      tags:
+          - { name: kernel.event_subscriber }
+

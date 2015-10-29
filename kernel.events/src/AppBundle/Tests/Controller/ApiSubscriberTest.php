@@ -17,8 +17,7 @@ class ApiSubscriberTest extends WebTestCase
         $client = static::createClient();
         $client->request('GET', '/api/product');
 
-        $this->assertInternalType('array', $client->getResponse()->getContent());
-        $this->assertNotNull($client->getResponse()->getContent()['X-READING-GROUP']);
+        $this->assertJson($client->getResponse()->getContent());
+        $this->assertNotEquals("{}", $client->getResponse()->getContent());
     }
-
 }
