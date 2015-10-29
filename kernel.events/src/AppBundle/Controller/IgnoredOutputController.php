@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -12,10 +13,12 @@ use Symfony\Component\HttpFoundation\Response;
 class IgnoredOutputController
 {
     /**
+     * @Route("/ignore", name="app.ignore")
+     *
      * @return Response
      */
     public function indexAction()
     {
-        return new Response(200, "I come from the controller");
+        return new Response("I come from the controller", 200);
     }
 }

@@ -16,7 +16,6 @@ class CustomHeaderListener
     public function onKernelRequest(GetResponseEvent $event)
     {
         $customHeader['X-READING-GROUP'] = '*';
-
         $event->getRequest()->headers->add($customHeader);
     }
 }

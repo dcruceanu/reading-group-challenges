@@ -15,3 +15,9 @@ services:
       tags:
           - { name: kernel.event_subscriber }
 
+  app.ignore_output.listener:
+      class: AppBundle\EventListener\IgnoreOutputListener
+      tags:
+          - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse, priority: 15 }
+
+
