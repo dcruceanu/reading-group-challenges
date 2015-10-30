@@ -16,7 +16,6 @@ class IgnoreOutputListener
 {
     public function onKernelResponse(FilterResponseEvent $event)
     {
-        var_dump('asfdfd');
         if ($event->getRequest()->attributes->get('_route') == "app.ignore") {
             $event->setResponse(new Response("Interception OK"));
         }
