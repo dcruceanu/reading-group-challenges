@@ -6,4 +6,6 @@ Using what you have learned regarding the Assets component, you need to create a
 * We need to define a way so that:
     * Default assets will be loaded from the `assets/` directory
     * For IMG files, they will be read from the `assets/images/` directory.
-    * For PDF files, they will be read from
+    * For PDF files, they will be read from the `assets/static/pdf` directory.
+    * For CSS files, they will be read from the `assets/stylesheets/` directory.
+* Make sure that your implementation takes the custom versioning strategy into account.
