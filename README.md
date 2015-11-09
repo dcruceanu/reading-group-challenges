@@ -24,4 +24,10 @@ Then whenever you need to update your own fork with the latest changes, simply r
     git pull --rebase upstream master
     git push -f
 
+## Branching strategy
+
+The challenges are numbered in the order that our team has read through certain materials. They are for all intents and purposes the critical path for solving all of the challenges.
+
+The branches with the `temp` prefix are for the challenges have already been set up, but the team hasn't yet read the theoretical aspects. They are basically placeholders, and once the team reaches a certain topic, they will be given their own directory in line with the others.
+
 Good luck!
