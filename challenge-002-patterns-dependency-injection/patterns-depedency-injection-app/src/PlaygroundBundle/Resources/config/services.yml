@@ -1,0 +1,14 @@
+services:
+  playground.service.abstract_counting:
+      class: PlaygroundBundle\Service\AbstractCountingService
+      abstract: true
+
+    playground.service.double_counting:
+      class: PlaygroundBundle\Service\DoubleCountingService
+      parent: PlaygroundBundle\Service\AbstractCountingService
+
+    playground.service.triple_counting:
+      class: PlaygroundBundle\Service\TripleCountingService
+      parent: PlaygroundBundle\Service\AbstractCountingService
+
+
