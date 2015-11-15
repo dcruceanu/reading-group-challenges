@@ -1,14 +1,24 @@
 services:
   playground.service.abstract_counting:
-      class: PlaygroundBundle\Service\AbstractCountingService
-      abstract: true
+    class: PlaygroundBundle\Service\AbstractCountingService
+    abstract: true
 
-    playground.service.double_counting:
-      class: PlaygroundBundle\Service\DoubleCountingService
-      parent: PlaygroundBundle\Service\AbstractCountingService
+  playground.service.double_counting:
+    class: PlaygroundBundle\Service\DoubleCountingService
+    parent: playground.service.abstract_counting
 
-    playground.service.triple_counting:
-      class: PlaygroundBundle\Service\TripleCountingService
-      parent: PlaygroundBundle\Service\AbstractCountingService
+  playground.service.triple_counting:
+    class: PlaygroundBundle\Service\TripleCountingService
+    parent: playground.service.abstract_counting
+
+  playground.service.base_entity_manager:
+    class: PlaygroundBundle\Service\BaseEntityManager
+    arguments: [@doctrine.orm.entity_manager]
+    public: false
+
+  playground.service.table_manager:
+    class: PlaygroundBundle\Service\TableManager
+    parent: playground.service.base_entity_manager
+    arguments: [@logger, @playground.repository.chair]
 
 

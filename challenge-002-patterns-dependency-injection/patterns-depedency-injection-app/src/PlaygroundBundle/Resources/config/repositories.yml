@@ -1,0 +1,6 @@
+services:
+    playground.repository.table:
+      class: PlaygroundBundle\Repository\TableRepository
+
+    playground.repository.chair:
+      class: PlaygroundBundle\Repository\ChairRepository
