@@ -19,6 +19,20 @@ services:
   playground.service.table_manager:
     class: PlaygroundBundle\Service\TableManager
     parent: playground.service.base_entity_manager
-    arguments: [@logger, @playground.repository.chair]
+    calls:
+        - [setLogger, [@logger]]
+        - [setTableRepository, [@playground.repository.table]]
+
+  playground.service.chair_manager:
+    class: PlaygroundBundle\Service\ChairManager
+    parent: playground.service.base_entity_manager
+    calls:
+        - [setLogger, [@logger]]
+        - [setChairRepository, [@playground.repository.chair]]
+
+  playground.service.class_name_manager:
+    class: PlaygroundBundle\Service\ClassNameManager
+    arguments:
+      services: [@playground.service.table_manager, @playground.service.chair_manager]
 
 

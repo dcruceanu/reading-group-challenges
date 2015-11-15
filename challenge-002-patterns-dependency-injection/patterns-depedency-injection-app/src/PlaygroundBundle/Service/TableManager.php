@@ -3,6 +3,7 @@
 
 namespace PlaygroundBundle\Service;
 
+use Doctrine\ORM\EntityManager;
 use PlaygroundBundle\Repository\TableRepository;
 use Psr\Log\LoggerInterface;
 
@@ -18,18 +19,52 @@ class TableManager extends BaseEntityManager
 
     protected $tableRepository;
 
-    function __construct(LoggerInterface $logger, TableRepository $tableRepository)
-    {
-        $this->logger = $logger;
-        $this->tableRepository = $tableRepository;
-    }
-
     public function getById($id)
     {
-        $this->tableRepository->setEntityManager($this->getEntityManager());
-        $id = $this->tableRepository->getById($id);
+        $this->getTableRepository()->setEntityManager($this->getEntityManager());
+        $id = $this->getTableRepository()->getById($id);
 
-        $this->logger->info("Table {$id} was retrieved from the database");
+        $this->getLogger()->info("Table {$id} was retrieved from the database");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLogger()
+    {
+        return $this->logger;
+    }
+
+    /**
+     * @param mixed $logger
+     *
+     * @return $this
+     */
+    public function setLogger($logger)
+    {
+        $this->logger = $logger;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTableRepository()
+    {
+        return $this->tableRepository;
+    }
+
+    /**
+     * @param mixed $tableRepository
+     *
+     * @return $this
+     */
+    public function setTableRepository($tableRepository)
+    {
+        $this->tableRepository = $tableRepository;
+
+        return $this;
     }
 
 }

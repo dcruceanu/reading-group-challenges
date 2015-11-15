@@ -27,6 +27,7 @@ class BaseController extends Controller
      */
     public function indexAction()
     {
+        //$classNames = $this->get('playground.service.class_name_manager')->getListOfClasses();
         return new Response("Bundle and routes configured correctly !");
     }
 

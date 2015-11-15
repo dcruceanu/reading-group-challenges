@@ -15,17 +15,51 @@ class ChairManager extends BaseEntityManager
 
     protected $chairRepository;
 
-    function __construct(LoggerInterface $logger, TableRepository $chairRepository)
-    {
-        $this->logger = $logger;
-        $this->chairRepository = $chairRepository;
-    }
-
     public function getById($id)
     {
-        $this->chairRepository->setEntityManager($this->getEntityManager());
-        $id = $this->chairRepository->getById($id);
+        $this->getChairRepository()->setEntityManager($this->getEntityManager());
+        $id = $this->getChairRepository()->getById($id);
 
         $this->logger->info("Chair {$id} was retrieved from the database");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLogger()
+    {
+        return $this->logger;
+    }
+
+    /**
+     * @param mixed $logger
+     *
+     * @return $this
+     */
+    public function setLogger($logger)
+    {
+        $this->logger = $logger;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getChairRepository()
+    {
+        return $this->chairRepository;
+    }
+
+    /**
+     * @param mixed $chairRepository
+     *
+     * @return $this
+     */
+    public function setChairRepository($chairRepository)
+    {
+        $this->chairRepository = $chairRepository;
+
+        return $this;
     }
 }
