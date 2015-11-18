@@ -28,6 +28,10 @@ class BaseController extends Controller
     public function indexAction()
     {
         //$classNames = $this->get('playground.service.class_name_manager')->getListOfClasses();
+        $integerValues = $this->get('playground.service.integer_storage')->addValue(3);
+
+        $floatValues = $this->get('playground.service.float_storage')->addValue(3.2);
+
         return new Response("Bundle and routes configured correctly !");
     }
 

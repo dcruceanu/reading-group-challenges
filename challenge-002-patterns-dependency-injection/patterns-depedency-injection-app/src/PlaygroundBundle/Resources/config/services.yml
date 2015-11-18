@@ -35,4 +35,15 @@ services:
     arguments:
       services: [@playground.service.table_manager, @playground.service.chair_manager]
 
+  playground.service.stdout_renderer:
+    class: PlaygroundBundle\Service\StdoutRenderer
 
+  playground.service.integer_storage:
+    class: PlaygroundBundle\Service\IntegerStorage
+    tags:
+      - { name: simple_storage }
+
+  playground.service.float_storage:
+    class: PlaygroundBundle\Service\FloatStorage
+    tags:
+      - { name: simple_storage }
