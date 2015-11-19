@@ -54,9 +54,9 @@ services:
     tags:
       - { name: simple_storage }
 
-  playground.service.float_storage:
-    class: PlaygroundBundle\Service\FloatStorage
-    tags:
-      - { name: simple_storage }
+#  playground.service.float_storage:
+#    class: PlaygroundBundle\Service\FloatStorage
+#    tags:
+#      - { name: simple_storage }
 
 
