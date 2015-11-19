@@ -29,8 +29,10 @@ class BaseController extends Controller
     {
         //$classNames = $this->get('playground.service.class_name_manager')->getListOfClasses();
         $integerValues = $this->get('playground.service.integer_storage')->addValue(3);
-
         $floatValues = $this->get('playground.service.float_storage')->addValue(3.2);
+
+        $valuesPrintedOnStdoutThroughFactoryService = $this->get('playground.service.file_renderer')->renderValue(22);
+        $valuesPrintedInFileThroughFactoryService = $this->get('playground.service.stdout_renderer')->renderValue(22);
 
         return new Response("Bundle and routes configured correctly !");
     }

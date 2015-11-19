@@ -37,6 +37,17 @@ services:
 
   playground.service.stdout_renderer:
     class: PlaygroundBundle\Service\StdoutRenderer
+    factory_class: PlaygroundBundle\Service\Factory\RendererFactory
+    factory_method: create
+    arguments:
+        - stdout
+
+  playground.service.file_renderer:
+    class: PlaygroundBundle\Service\FileRenderer
+    factory_class: PlaygroundBundle\Service\Factory\RendererFactory
+    factory_method: create
+    arguments:
+        - file
 
   playground.service.integer_storage:
     class: PlaygroundBundle\Service\IntegerStorage
@@ -47,3 +58,5 @@ services:
     class: PlaygroundBundle\Service\FloatStorage
     tags:
       - { name: simple_storage }
+
+
