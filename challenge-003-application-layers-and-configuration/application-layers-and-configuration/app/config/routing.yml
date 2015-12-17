@@ -1,3 +1,7 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+linker:
+    resource: "@LinkerBundle/Controller/"
+    type:     annotation

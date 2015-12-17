@@ -1,15 +1,16 @@
-<services>
-    <service id="linker.link_manager.service"
-             class="LinkerBundle\Service\LinkManager">
-        <argument type="service" id="entity_manager"/>
-    </service>
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="linker.link_manager.service"
+                 class="LinkerBundle\Service\LinkManager">
+            <argument type="service" id="doctrine.orm.entity_manager"/>
+        </service>
 
-    <service id="linker.link_form_handler.service"
-             class="LinkerBundle\Form\Handler\LinkFormHandler">
-        <argument type="service" id="linker.link_manager.service"/>
-    </service>
-
-    <service id="linker.link_monitor.listener" class="LinkerBundle\Listener\LinkMonitorListener">
-        <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
-    </service>
-</services>
+        <service id="linker.link_form_handler.service"
+                 class="LinkerBundle\Form\Handler\LinkFormHandler">
+            <argument type="service" id="linker.link_manager.service"/>
+        </service>
+    </services>
+</container>
