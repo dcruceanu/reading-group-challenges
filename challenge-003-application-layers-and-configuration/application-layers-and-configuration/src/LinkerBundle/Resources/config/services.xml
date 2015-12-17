@@ -8,4 +8,8 @@
              class="LinkerBundle\Form\Handler\LinkFormHandler">
         <argument type="service" id="linker.link_manager.service"/>
     </service>
+
+    <service id="linker.link_monitor.listener" class="LinkerBundle\Listener\LinkMonitorListener">
+        <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+    </service>
 </services>
